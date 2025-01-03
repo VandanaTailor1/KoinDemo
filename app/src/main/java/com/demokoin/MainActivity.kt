@@ -1,18 +1,23 @@
 package com.demokoin
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.demokoin.model.Car
-import org.koin.android.ext.android.inject
+import com.demokoin.container.Component
+
 
 class MainActivity : AppCompatActivity() {
 
-    private val car : Car by inject()
-    override fun onCreate(savedInstanceState : Bundle?) {
+    // Inject HelloPrinter
+    //  private val helloCar: HelloCar by inject()
+    //    private val car : Car by inject()
+    private val component = Component()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        component.car.getCar()
+        component.main.getDemo()
+        component.mainViewModel.getTest()
+
     }
 }

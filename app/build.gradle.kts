@@ -4,12 +4,12 @@ plugins {
 //    id("koin")
     id("kotlin-kapt")
 //    id("kotlin-android")
-
+    id ("kotlin-android")
 }
 
 android {
     namespace = "com.demokoin"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.demokoin"
@@ -56,14 +56,22 @@ dependencies {
 
 //    implementation ("org.koin:koin-core:3.2.0")
 //    // Koin Android features
-//    implementation ("org.koin:koin-android:3.2.0")
+// implementation ("org.koin:koin-android:3.2.0")
 //    implementation ("org.koin:koin-androidx-viewmodel:3.2.0")
     // Core Koin for Kotlin
-    implementation ("io.insert-koin:koin-core:3.5.0")
-
+    implementation(libs.koin.core)
     // Koin for Android
-    implementation ("io.insert-koin:koin-android:3.5.0")
+    implementation(libs.koin.android)
 
     // Koin for ViewModel (optional, if you use ViewModel)
-    implementation ("io.insert-koin:koin-androidx-viewmodel:3.5.0")
+    //implementation ("io.insert-koin:koin-androidx-viewmodel:3.5.0")
+    //implementation ("io.insert-koin:koin-androidx-viewmodel:3.4.1")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    //implementation("com.squareup.moshi:moshi:1.15.2")
+    implementation("com.squareup.moshi:moshi:1.15.0") // Core Moshi library
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.0") // Moshi Kotlin integration
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 }
